@@ -5,6 +5,7 @@ import I18nProvider from '@components/layout/I18nProvider';
 import '@styles/main.scss';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
     icons: {
