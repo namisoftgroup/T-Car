@@ -24,8 +24,10 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer">
+   <footer className="footer">
+      
       <div className="container-tcar footer_top">
+
         <div className="footer_brand">
           <Image src={logo} alt="T-Car" width={160} height={48} />
 
@@ -110,5 +112,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+ 
   );
 }

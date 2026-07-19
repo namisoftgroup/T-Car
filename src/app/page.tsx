@@ -5,6 +5,7 @@ import Partners from '@/components/home/Partners';
 import DownloadApp from '@/components/home/Download';
 import FAQ from '@components/home/FAQ';
 import Contact from '@/components/home/contact';
+import CTA from '@/components/home/CTA/CTA';
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <FAQ />
       <DownloadApp />
       <Contact />
+      <CTA/>
     </>
   );
 }

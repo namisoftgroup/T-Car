@@ -1,4 +1,4 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import '../../node_modules/bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700;800&display=swap');
 
 // ==========================================================================
@@ -103,7 +103,7 @@ html[dir='ltr'] body {
   .car-gallery-nav.next {
     transform: rotate(180deg);
   }
-  .download_app .download_app_card{
+  .download_app .download_app_card {
     justify-content: flex-start;
   }
 }
@@ -140,90 +140,90 @@ img {
 }
 // Common / Button
 .btn {
+  position: relative;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  transition: 0.35s;
+  border-radius: $radius-md;
+  span {
     position: relative;
+    z-index: 2;
 
     display: inline-flex;
-    justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 
-    overflow: hidden;
-    isolation: isolate;
+    transition: 0.3s;
+  }
 
-    transition: .35s;
-border-radius: $radius-md;
-    span {
-      position: relative;
-      z-index: 2;
+  &::after {
+    content: '';
 
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
+    position: absolute;
+    inset: 0;
 
-      transition: .3s;
-    }
+    width: 0;
 
+    transition: width 0.35s ease;
+
+    z-index: 1;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &:hover span {
+    animation: btnScale 0.3s;
+  }
+
+  &-primary {
     &::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      width: 0;
-
-      transition: width .35s ease;
-
-      z-index: 1;
-    }
-
-    &:hover::after {
-      width: 100%;
+      background: darken($secondary, 12%);
     }
 
     &:hover span {
-      animation: btnScale .3s;
-    }
-
-    &-primary {
-      &::after {
-        background: darken($secondary, 12%);
-      }
-
-      &:hover span {
-        color: $white;
-      }
-    }
-
-    &-secondary {
-      &::after {
-        background: darken($primary, 10%);
-      }
-
-      &:hover span {
-        color: $white;
-      }
-    }
-
-    &-outline {
-      &::after {
-        background: $secondary;
-      }
-
-      &:hover {
-        border-color: $secondary;
-      }
-
-      &:hover span {
-        color: $white;
-      }
+      color: $white;
     }
   }
+
+  &-secondary {
+    &::after {
+      background: darken($primary, 10%);
+    }
+
+    &:hover span {
+      color: $white;
+    }
+  }
+
+  &-outline {
+    &::after {
+      background: $secondary;
+    }
+
+    &:hover {
+      border-color: $secondary;
+    }
+
+    &:hover span {
+      color: $white;
+    }
+  }
+}
 @keyframes btnScale {
   0% {
     transform: scale(1);
   }
 
   50% {
-    transform: scale(.95);
+    transform: scale(0.95);
   }
 
   100% {
@@ -532,7 +532,7 @@ border-radius: $radius-md;
     img {
       height: 48px;
       width: auto;
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
 
     &:hover img {
@@ -563,7 +563,7 @@ border-radius: $radius-md;
       background: $white;
       box-shadow: $shadow-md;
 
-      transition: .35s;
+      transition: 0.35s;
     }
 
     &.is-open {
@@ -590,7 +590,7 @@ border-radius: $radius-md;
 
         color: $primary;
         font-weight: 600;
-        transition: .3s;
+        transition: 0.3s;
 
         &:hover {
           color: $secondary;
@@ -635,14 +635,14 @@ border-radius: $radius-md;
     width: 42px;
     height: 42px;
 
-    border: 1px solid rgba($dark, .08);
+    border: 1px solid rgba($dark, 0.08);
     border-radius: 10px;
 
     background: $white;
     color: $primary;
 
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 
     &:hover {
       background: $primary;
@@ -654,7 +654,6 @@ border-radius: $radius-md;
       place-items: center;
     }
   }
-
 }
 // Layout / user-menu
 .user-menu {
@@ -1190,20 +1189,20 @@ border-radius: $radius-md;
       gap: 1rem;
       flex-wrap: wrap;
 
-     .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  height: 38px;
-border: 1px solid $gray-light;
-  span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
-  }
-}
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        height: 38px;
+        border: 1px solid $gray-light;
+        span {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+      }
     }
   }
 
@@ -3126,36 +3125,16 @@ border: 1px solid $gray-light;
         color: $primary;
       }
 
-      input,
-      textarea {
-        width: 100%;
-        height: 54px;
-
-        border: 1px solid #e5e7eb;
-        border-radius: 14px;
-
-        padding: 0 16px;
-
-        transition: 0.3s;
-
-        &:focus {
-          border-color: $secondary;
-        }
+      .react-tel-input {
+        padding-left: 28px;
       }
+    }
 
-      textarea {
-        height: 160px;
-        resize: none;
-        padding: 16px;
-      }
-    .react-tel-input{
-      padding-left: 28px;
-    }}
-
-.contact_btn {
-  width: 100%;
-  margin-top: 12px;
-}
+    .contact_btn {
+      height: 42px;
+      width: 100%;
+      margin-top: 12px;
+    }
   }
 
   @media (max-width: 992px) {
@@ -3179,6 +3158,117 @@ border: 1px solid $gray-light;
       .socials {
         justify-content: center;
       }
+    }
+  }
+}
+////////////////////////cta//////////////////////////////
+.cta {
+  margin-bottom: 70px;
+
+  .cta_content {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(135deg, $secondary, darken($secondary, 8%));
+
+    border-radius: 28px;
+    padding: 60px 30px;
+    text-align: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -2px;
+      top: 29%;
+
+      width: 320px;
+      height: 320px;
+
+      background: url('../assets/images/fav.svg') no-repeat center;
+      background-size: contain;
+
+      opacity: 0.09;
+      filter: brightness(0) invert(1);
+
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  .cta_pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    pointer-events: none;
+
+    background-image:
+      radial-gradient(circle at 20% 20%, #fff 2px, transparent 2px),
+      radial-gradient(circle at 80% 40%, #fff 2px, transparent 2px),
+      radial-gradient(circle at 40% 80%, #fff 2px, transparent 2px);
+
+    background-size: 80px 80px;
+  }
+
+  .cta_text {
+    position: relative;
+    z-index: 2;
+
+    max-width: 700px;
+    margin: auto;
+
+    h3 {
+      color: $white;
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: rgba($white, 0.9);
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+  }
+
+  .cta_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: $white;
+    color: $secondary;
+
+    padding: 15px 36px;
+
+    border-radius: 14px;
+    text-decoration: none;
+
+    font-weight: 700;
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba($black, 0.15);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cta_content {
+      padding: 45px 20px;
+    }
+
+    .cta_text h3 {
+      font-size: 26px;
+    }
+
+    .cta_text p {
+      font-size: 15px;
     }
   }
 }
@@ -5975,7 +6065,6 @@ border: 1px solid $gray-light;
       }
     }
   }
-
 }
 
 .save_btn {
@@ -6386,20 +6475,20 @@ border: 1px solid $gray-light;
       background: rgba($dark, 0.55);
       color: $white;
     }
-     &.active {
-    background: $secondary;
-    color: $white;
-  }
+    &.active {
+      background: $secondary;
+      color: $white;
+    }
 
-  &.upcoming {
-    background: rgba($dark, .55);
-    color: $white;
-  }
+    &.upcoming {
+      background: rgba($dark, 0.55);
+      color: $white;
+    }
 
-  &.completed {
-    background: #18b56b;
-    color: $white;
-  }
+    &.completed {
+      background: #18b56b;
+      color: $white;
+    }
   }
 
   &-body {
@@ -6471,14 +6560,10 @@ border: 1px solid $gray-light;
 
   padding: 4rem 2rem;
 
-  border: 1px solid rgba($secondary, .08);
+  border: 1px solid rgba($secondary, 0.08);
   border-radius: 20px;
 
-  background: linear-gradient(
-    180deg,
-    rgba($secondary, .05),
-    $white
-  );
+  background: linear-gradient(180deg, rgba($secondary, 0.05), $white);
 
   &-animation {
     width: 240px;
@@ -6488,7 +6573,7 @@ border: 1px solid $gray-light;
   }
 
   h3 {
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
 
     color: $primary;
 
@@ -6521,7 +6606,7 @@ border: 1px solid $gray-light;
     }
 
     p {
-      font-size: .95rem;
+      font-size: 0.95rem;
     }
 
     .btn {
@@ -6530,7 +6615,7 @@ border: 1px solid $gray-light;
   }
 }
 ///////////////////////////////////////////////////////
-$gauge-bg: #1c2333;   // instrument-panel navy, used only by the countdown gauge
+$gauge-bg: #1c2333; // instrument-panel navy, used only by the countdown gauge
 $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gauge
 
 .booking-details-page {
@@ -6564,7 +6649,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     border: 1px solid $gray-light;
     border-radius: 10px;
     color: $primary;
-    transition: .2s;
+    transition: 0.2s;
 
     &:hover {
       background-color: $secondary;
@@ -6587,7 +6672,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     }
 
     .reference {
-      font-size: .82rem;
+      font-size: 0.82rem;
       color: $gray;
     }
   }
@@ -6596,17 +6681,17 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
 .booking-details-status {
   padding: 5px 14px;
   border-radius: 999px;
-  font-size: .78rem;
+  font-size: 0.78rem;
   font-weight: 700;
   flex-shrink: 0;
 
   &.active {
-    background: rgba(#18b56b, .1);
+    background: rgba(#18b56b, 0.1);
     color: #18b56b;
   }
 
   &.past {
-    background: rgba($dark, .06);
+    background: rgba($dark, 0.06);
     color: $gray;
   }
 }
@@ -6631,7 +6716,9 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     min-height: 260px;
     background: #eef0f4;
 
-    img { object-fit: cover; }
+    img {
+      object-fit: cover;
+    }
 
     @media (max-width: 860px) {
       min-height: 200px;
@@ -6649,10 +6736,12 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: .85rem;
+      font-size: 0.85rem;
       color: $gray;
 
-      svg { flex-shrink: 0; }
+      svg {
+        flex-shrink: 0;
+      }
     }
 
     h2 {
@@ -6669,7 +6758,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
       gap: 10px;
 
       .old {
-        font-size: .9rem;
+        font-size: 0.9rem;
         color: #aaa;
         text-decoration: line-through;
       }
@@ -6680,7 +6769,11 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
         color: $secondary;
         font-size: 1.3rem;
 
-        small { color: $gray; font-weight: 500; font-size: .8rem; }
+        small {
+          color: $gray;
+          font-weight: 500;
+          font-size: 0.8rem;
+        }
       }
     }
   }
@@ -6740,7 +6833,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
       place-items: center;
 
       border-radius: 10px;
-      background: rgba($secondary, .08);
+      background: rgba($secondary, 0.08);
       color: $secondary;
     }
 
@@ -6751,13 +6844,13 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     }
 
     .label {
-      font-size: .78rem;
+      font-size: 0.78rem;
       color: $gray;
     }
 
     .value {
       font-variant-numeric: tabular-nums;
-      font-size: .92rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: $primary;
     }
@@ -6770,13 +6863,17 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
 
     padding: 12px 14px;
     border-radius: 12px;
-    background: rgba($secondary, .05);
+    background: rgba($secondary, 0.05);
 
-    font-size: .82rem;
+    font-size: 0.82rem;
     color: $primary;
     line-height: 1.7;
 
-    svg { color: $secondary; flex-shrink: 0; margin-top: 2px; }
+    svg {
+      color: $secondary;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
   }
 }
 
@@ -6800,7 +6897,11 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     justify-content: center;
     padding: 20px;
 
-    p { margin: 0; color: $white; font-weight: 600; }
+    p {
+      margin: 0;
+      color: $white;
+      font-weight: 600;
+    }
   }
 
   &-left {
@@ -6810,15 +6911,15 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
 
   .countdown-title {
     display: block;
-    font-size: .8rem;
-    color: rgba($white, .6);
+    font-size: 0.8rem;
+    color: rgba($white, 0.6);
     margin-bottom: 4px;
   }
 
   .countdown-sub {
     display: block;
-    font-size: .78rem;
-    color: rgba($gauge-amber, .9);
+    font-size: 0.78rem;
+    color: rgba($gauge-amber, 0.9);
   }
 
   .countdown-units {
@@ -6828,7 +6929,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     flex-shrink: 0;
 
     .separator {
-      color: rgba($white, .35);
+      color: rgba($white, 0.35);
       font-weight: 700;
       font-size: 1.3rem;
       padding-bottom: 14px;
@@ -6843,15 +6944,15 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
 
       .number {
         font-variant-numeric: tabular-nums;
-        letter-spacing: .02em;
+        letter-spacing: 0.02em;
         font-size: 1.7rem;
         font-weight: 800;
         color: $gauge-amber;
       }
 
       .label {
-        font-size: .68rem;
-        color: rgba($white, .55);
+        font-size: 0.68rem;
+        color: rgba($white, 0.55);
       }
     }
   }
@@ -6860,7 +6961,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     margin-top: 14px;
     height: 4px;
     border-radius: 999px;
-    background: rgba($white, .12);
+    background: rgba($white, 0.12);
     overflow: hidden;
 
     span {
@@ -6868,7 +6969,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
       height: 100%;
       background: $gauge-amber;
       border-radius: 999px;
-      transition: width .4s ease;
+      transition: width 0.4s ease;
     }
   }
 }
@@ -6904,15 +7005,22 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     align-items: center;
     padding: 8px 0;
 
-    .label { font-size: .85rem; color: $gray; }
+    .label {
+      font-size: 0.85rem;
+      color: $gray;
+    }
 
     .value {
       font-variant-numeric: tabular-nums;
-      font-size: .9rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: $primary;
 
-      small { color: $gray; font-weight: 500; margin-inline-start: 4px; }
+      small {
+        color: $gray;
+        font-weight: 500;
+        margin-inline-start: 4px;
+      }
     }
 
     &.total {
@@ -6920,7 +7028,10 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
       padding-top: 16px;
       border-top: 1px dashed #eee;
 
-      .label { font-weight: 700; color: $primary; }
+      .label {
+        font-weight: 700;
+        color: $primary;
+      }
       .value {
         font-size: 1.25rem;
         font-weight: 800;
@@ -6935,7 +7046,8 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     gap: 10px;
     margin-top: 4px;
 
-    button, a {
+    button,
+    a {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -6943,18 +7055,20 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
 
       height: 44px;
       border-radius: 12px;
-      font-size: .85rem;
+      font-size: 0.85rem;
       font-weight: 700;
       border: none;
       cursor: pointer;
-      transition: .2s;
+      transition: 0.2s;
     }
 
     .primary-action {
       background: $secondary;
       color: $white;
 
-      &:hover { background: $primary; }
+      &:hover {
+        background: $primary;
+      }
     }
   }
 }
@@ -6965,7 +7079,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
   inset: 0;
   z-index: 100;
 
-  background: rgba($dark, .45);
+  background: rgba($dark, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6994,7 +7108,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
 
   &-subtitle {
     margin: -10px 0 0;
-    font-size: .85rem;
+    font-size: 0.85rem;
     color: $gray;
   }
 
@@ -7030,11 +7144,13 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
       color: #ddd;
       font-size: 1.4rem;
       cursor: pointer;
-      transition: .15s;
+      transition: 0.15s;
       display: grid;
       place-items: center;
 
-      &.filled { color: $gauge-amber; }
+      &.filled {
+        color: $gauge-amber;
+      }
     }
   }
 
@@ -7046,7 +7162,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     border-radius: 12px;
     padding: 12px 14px;
 
-    font-size: .88rem;
+    font-size: 0.88rem;
     font-family: inherit;
     color: $primary;
 
@@ -7055,7 +7171,9 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
       border-color: $secondary;
     }
 
-    &::placeholder { color: #bbb; }
+    &::placeholder {
+      color: #bbb;
+    }
   }
 
   &-submit {
@@ -7065,30 +7183,32 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
 
     background: $primary;
     color: $white;
-    font-size: .9rem;
+    font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
-    transition: .2s;
+    transition: 0.2s;
 
-    &:hover:not(:disabled) { background: $secondary; }
+    &:hover:not(:disabled) {
+      background: $secondary;
+    }
 
     &:disabled {
-      background: rgba($dark, .1);
+      background: rgba($dark, 0.1);
       color: $gray;
       cursor: not-allowed;
     }
   }
 }
 ///////////filter cars//////////////////////
-.car-page{
+.car-page {
   margin-top: 40px;
 }
 .car_filters {
   background: $white;
   border-radius: 22px;
   padding: 24px;
-  border: 1px solid rgba($dark, .06);
-  box-shadow: 0 4px 20px rgba($dark, .05);
+  border: 1px solid rgba($dark, 0.06);
+  box-shadow: 0 4px 20px rgba($dark, 0.05);
 
   position: sticky;
   top: 100px;
@@ -7161,7 +7281,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
     }
   }
 
-  .filter_group>h4 {
+  .filter_group > h4 {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -7196,7 +7316,7 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
       background: $white;
       outline: none;
       padding: 0 44px 0 14px;
-      transition: .25s;
+      transition: 0.25s;
 
       &::placeholder {
         color: #aaa;
@@ -7250,6 +7370,113 @@ $gauge-amber: #e0993a; // headlight-amber accent, used only by the countdown gau
       color: #555;
       font-size: 14px;
       font-weight: 500;
+    }
+  }
+}
+
+////////////join us ////////////
+.form_group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form_label {
+  font-size: 14px;
+  font-weight: 600;
+  color: $primary;
+
+  span {
+    color: #ef4444;
+    margin-inline-start: 4px;
+  }
+}
+
+.form_input,
+.form_textarea,
+.form_select {
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  transition: 0.25s;
+  font-size: 15px;
+
+  &:focus {
+    outline: none;
+    border-color: $secondary;
+    box-shadow: 0 0 0 3px rgba($secondary, 0.12);
+  }
+}
+
+.form_select {
+  appearance: none;
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%23666' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 16px center;
+  padding-inline-end: 16px;
+  padding-inline-start: 45px;
+}
+.form_error {
+  color: #ef4444;
+  font-size: 13px;
+}
+.register_showroom {
+  .section_heading {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+      color: $primary;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: $gray;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.8;
+    }
+    span{
+      color: $secondary;
+      font-weight: 700;
+    }
+  }
+
+  .register_form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .form_grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .submit_area {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .register_card {
+      padding: 24px;
+    }
+
+    .form_grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section_heading h2 {
+      font-size: 26px;
     }
   }
 }
