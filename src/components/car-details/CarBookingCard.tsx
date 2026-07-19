@@ -6,7 +6,8 @@ import { formatCurrency } from '@utils/index';
 import BookingModal from '../modals/BookingModal';
 import BookingConfirmModal from '../modals/BookingConfirmModal';
 import SuccessModal from '../common/SuccessModal';
-
+import Image from "next/image";
+import RiyalIcon from "@/assets/icons/sar.svg";
 import type {
   BookingDetails,
   PaymentMethod,
@@ -61,20 +62,28 @@ export default function CarBookingCard({
   return (
     <aside className="car-booking-card">
 
-      <div className="car-booking-card-price">
+   <div className="car-booking-card-price">
+  {originalPrice && (
+    <span className="car-booking-card-old-price">
+      {formatCurrency(originalPrice)}
+    </span>
+  )}
 
-        {originalPrice && (
-          <span className="car-booking-card-old-price">
-            {formatCurrency(originalPrice)}
-          </span>
-        )}
+<div className="car-booking-card-current">
+  <h2>
+    {pricePerDay}
+    <Image
+      src={RiyalIcon}
+      alt="ريال"
+      width={18}
+      height={18}
+      className="riyal-icon"
+    />
+  </h2>
 
-        <div className="car-booking-card-current">
-          <h2>{formatCurrency(pricePerDay)}</h2>
-          <small>/ يوم</small>
-        </div>
-
-      </div>
+  <small>/ يوم</small>
+</div>
+</div>
 
       <button
         type="button"

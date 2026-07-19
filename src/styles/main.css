@@ -15179,14 +15179,23 @@ img {
 }
 .car-booking-card-current {
   display: flex;
-  align-items: baseline;
-  gap: 6px;
+  align-items: end;
+  gap: 8px;
 }
 .car-booking-card-current h2, .car-booking-card-current .h2 {
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 2rem;
   font-weight: 800;
   color: #0a2540;
+  line-height: 1;
+}
+.car-booking-card-current .riyal-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 .car-booking-card-current small, .car-booking-card-current .small {
   color: #6c757d;
@@ -17872,6 +17881,49 @@ img {
 .form_error {
   color: #ef4444;
   font-size: 13px;
+}
+
+.upload_field {
+  margin-top: 24px;
+}
+.upload_field label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.upload_field label span {
+  color: #ef4444;
+}
+.upload_field input[type=file] {
+  width: 100%;
+  padding: 14px;
+  border: 1px dashed #d6d6d6;
+  border-radius: 14px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.upload_field input[type=file]:hover {
+  border-color: #0a2540;
+  background: rgba(10, 37, 64, 0.03);
+}
+.upload_field input[type=file]::file-selector-button {
+  margin-inline-end: 12px;
+  border: none;
+  background: #0a2540;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.upload_field small, .upload_field .small {
+  display: block;
+  margin-top: 8px;
+  color: #6c757d;
+  font-size: 0.85rem;
 }
 
 .register_showroom .section_heading {
